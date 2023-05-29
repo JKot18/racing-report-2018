@@ -78,7 +78,7 @@ def print_report(files: Path, order: str) -> NoReturn:
 or print full info for a single driver, and change the sort order of the report."""
 
 
-def print_driver_info(files: Path, order: str, driver: str)-> NoReturn:
+def print_driver_info(files: Path, order: str, driver: str) -> NoReturn:
     records = build_report(files, order)[0]
     matching_records = [record for record in records.values() if record["name"] == driver]
     if matching_records:
