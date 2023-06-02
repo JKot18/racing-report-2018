@@ -1,7 +1,7 @@
 from flask import Flask, render_template, abort, request, Response
 from pathlib import Path
 from typing import List, Dict, Tuple
-from report.src._.main import build_report
+from report.src.core.main import build_report
 
 app = Flask(__name__)
 
