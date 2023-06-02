@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+    <ol>
+    {% for racer, values in sorted_report.items() %}
+        <li>
+            <p>{{ racer }}</p>
+            <ul>
+            {% for key, value in values.items() %}
+                {% if key == "name" %}
+                    <li> Name: {{ value }}</li>
+                {% elif key == "team" %}
+                    <li> Team: {{ value }}</li>
+                {% elif key == "time_diff" %}
+                    <li> Time: {{ value }}</li>
+                 {% endif %}
+            {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+    </ol>
+{% endblock %}

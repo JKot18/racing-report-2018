@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title -%}
+    <title>{{ title }}</title>
+    {% endblock %}
+</head>
+<body>
+<div class="main" style="width: 50%; margin-left: 25%;">
+    {% block content -%}
+    <h1 style="text-align: center;">{{ title }}</h1>
+    <ul style="display: flex;padding: 0;flex-wrap: wrap;flex-direction: row-reverse;">
+    {% for i in bread_crumbs %}
+    <li style="margin-left: 25px;"><a href="http://localhost:5000/{{ i }}">{{ i | capitalize }}</a></li>
+    {% endfor %}
+    </ul>
+    {% endblock -%}
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+    <ol>
+    {% for racer, values in list_of_racers.items() %}
+        <li>
+            <p>Code: <a href="http://localhost:5000/list/{{ racer }}">{{ racer }}</a> --
+            {% for key, value in values.items() %}
+                {% if key == "name" %}
+                    Driver: {{ value }}
+                {% elif key == "team" %}
+                 {% endif %}
+            {% endfor %}
+            </p>
+        </li>
+    {% endfor %}
+    </ol>
+{% endblock %}
