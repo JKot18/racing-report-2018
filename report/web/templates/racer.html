@@ -2,11 +2,11 @@
 {% block content %}
 {{ super() }}
 <p>Driver code: {{ driver_code }}
-<p>    {% if driver_code in list_of_racers.keys() %}
-        {% for key, value in list_of_racers[driver_code].items() %}
-            <p>{{ key | capitalize | replace("_", " ") }}: {{ value }}
+<ul>{% for i in racer %}
+        {% for info in i if i.index(info) > 0 %}
+            <li>{{ info }}</li>
         {% endfor %}
-    {% endif %}
-</p>
+    {% endfor %}
+</ul>
 
 {% endblock %}

@@ -52,7 +52,7 @@ class TestApp:
     def test_api_get_driver(self, client) -> None:
         response = client.get("/api/v1/drivers/VBM/")
         data = response.json
-        assert 'Valtteri Bottas' in data['name']
+        assert any('name' in item and item['name'] == 'Valtteri Bottas' for item in data)
 
     def test_api_get_driver_header(self, client) -> None:
         response = client.get("/api/v1/drivers/VBM/")
@@ -67,7 +67,7 @@ class TestApp:
     def test_api_get_drivers(self, client) -> None:
         response = client.get("/api/v1/drivers/")
         data = response.json
-        assert 'SVF' in data.keys()
+        assert any('code' in item and item['code'] == 'SVF' for item in data)
 
     def test_api_get_drivers_xml(self, client) -> None:
         response = client.get("/api/v1/drivers/?format=xml")
@@ -77,7 +77,7 @@ class TestApp:
     def test_api_get_report(self, client) -> None:
         response = client.get("/api/v1/report/")
         data = response.json
-        assert 'SVF' in data['1']['code']
+        assert any('code' in item and item['code'] == 'SVF' for item in data)
 
     def test_api_get_report_xml(self, client) -> None:
         response = client.get("/api/v1/report/?format=xml")
