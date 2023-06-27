@@ -2,7 +2,7 @@ from flask import render_template, abort, request, Response, make_response
 from flask_api import FlaskAPI
 from flask_swagger_ui import get_swaggerui_blueprint
 import json
-from report.data.database_sqlite import get_report, get_list, get_racer
+from report.data.models_peewee import get_report, get_list, get_racer
 import xmltodict
 
 
