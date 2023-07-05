@@ -2,18 +2,13 @@
 
 {% block content %}
 {{ super() }}
-    <ol>
-    {% for racer, values in list_of_racers.items() %}
+    <ul>
+    {% for i in list_of_racers %}
         <li>
-            <p>Code: <a href="http://localhost:5000/list/{{ racer }}">{{ racer }}</a> --
-            {% for key, value in values.items() %}
-                {% if key == "name" %}
-                    Driver: {{ value }}
-                {% elif key == "team" %}
-                 {% endif %}
-            {% endfor %}
+            <p>Code: <a href="http://localhost:5000/list/{{ i[0] }}">{{ i[0] }}</a> --
+                Driver: {{ i[1] }}
             </p>
         </li>
     {% endfor %}
-    </ol>
+    </ul>
 {% endblock %}

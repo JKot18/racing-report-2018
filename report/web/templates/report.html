@@ -3,19 +3,13 @@
 {% block content %}
 {{ super() }}
     <ol>
-    {% for racer, values in sorted_report.items() %}
+    {% for items in sorted_report %}
         <li>
-            <p>{{ racer }}</p>
             <ul>
-            {% for key, value in values.items() %}
-                {% if key == "name" %}
-                    <li> Name: {{ value }}</li>
-                {% elif key == "team" %}
-                    <li> Team: {{ value }}</li>
-                {% elif key == "time_diff" %}
-                    <li> Time: {{ value }}</li>
-                 {% endif %}
-            {% endfor %}
+                    <li> Name: {{ items[2] }}</li>
+                    <li> Team: {{ items[3] }}</li>
+                    {% set time = items[1] | float %}
+                    <li> Time: {{ '{:.3f} sec'.format(time / 1000)  }}</li>
             </ul>
         </li>
     {% endfor %}
